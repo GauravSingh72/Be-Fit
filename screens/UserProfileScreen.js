@@ -1,8 +1,7 @@
-// UserProfileScreen.js
 import React, { useState } from 'react'
 import { View, Text, TextInput, Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import styles from '../style'
+import styles from '../styles/styles'
 
 function UserProfileScreen () {
   const [name, setName] = useState('')
@@ -29,6 +28,7 @@ function UserProfileScreen () {
         value={age}
         onChangeText={setAge}
         style={styles.input}
+        keyboardType='numeric'
       />
       <TextInput
         placeholder='Gender'
@@ -36,11 +36,21 @@ function UserProfileScreen () {
         onChangeText={setGender}
         style={styles.input}
       />
-      <Button title='Save Profile' onPress={handleSaveProfile} />
-      <Button
-        title='Set Fitness Goal'
-        onPress={() => navigation.navigate('GoalSetting')}
-      />
+      <View style={styles.buttonContainer}>
+        <Button title='Save Profile' onPress={handleSaveProfile} />
+        <View style={styles.buttonGap} />
+        <Button
+          title='Set Fitness Goal'
+          onPress={() => navigation.navigate('GoalSetting')}
+        />
+      </View>
+      <View style={styles.workoutBtn} />
+      <View>
+        <Button
+          title='Workout Logging'
+          onPress={() => navigation.navigate('WorkoutLogging')}
+        />
+      </View>
     </View>
   )
 }

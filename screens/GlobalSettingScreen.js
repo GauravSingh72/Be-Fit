@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, Button } from 'react-native'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ScrollView
+} from 'react-native'
 import styles from '../styles/styles'
 
 function GoalSettingScreen ({ navigation }) {
   const [goalType, setGoalType] = useState('')
   const [goalTarget, setGoalTarget] = useState('')
+  const [savedGoals, setSavedGoals] = useState([])
 
   const handleSaveGoal = () => {
     if (!goalType || !goalTarget) {
@@ -12,7 +19,10 @@ function GoalSettingScreen ({ navigation }) {
       return
     }
 
-    console.log('Goal saved:', { goalType, goalTarget })
+    const newGoal = { goalType, goalTarget }
+    setSavedGoals([...savedGoals, newGoal])
+    setGoalType('')
+    setGoalTarget('')
   }
 
   return (
@@ -30,8 +40,24 @@ function GoalSettingScreen ({ navigation }) {
         onChangeText={setGoalTarget}
         style={styles.input}
       />
-      <Button title='Save Goal' onPress={handleSaveGoal} />
-      <Button title='Back to Profile' onPress={() => navigation.goBack()} />
+      <TouchableOpacity style={styles.button} onPress={handleSaveGoal}>
+        <Text style={styles.buttonText}>Save Goal</Text>
+      </TouchableOpacity>
+      <ScrollView style={styles.logContainer}>
+        {savedGoals.map((goal, index) => (
+          <View key={index} style={styles.logItem}>
+            <Text>
+              Goal Type: {goal.goalType}, Goal Target: {goal.goalTarget}
+            </Text>
+          </View>
+        ))}
+      </ScrollView>
+      <TouchableOpacity
+        style={[styles.button, styles.bottomButton]}
+        onPress={() => navigation.goBack()}
+      >
+        <Text style={styles.buttonText}>Back to Profile</Text>
+      </TouchableOpacity>
     </View>
   )
 }
