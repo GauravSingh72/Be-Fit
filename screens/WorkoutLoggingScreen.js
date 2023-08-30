@@ -5,7 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
-  Button,
+  Button
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import styles from '../styles/styles'
@@ -46,8 +46,6 @@ function WorkoutLoggingScreen () {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Log Your Workout and Meals</Text>
-
       <Text style={styles.subHeading}>Workout Logging</Text>
       <TextInput
         placeholder='Activity (e.g., Running, Yoga)'
@@ -101,7 +99,17 @@ function WorkoutLoggingScreen () {
           </View>
         ))}
       </ScrollView>
-      <Button title='Back to Profile' onPress={() => navigation.goBack()} />
+      <View>
+        <Button title='Back to Profile' onPress={() => navigation.goBack()} />
+        <View style={{ marginVertical: 10 }}>
+          <Button
+            title='View Progress'
+            onPress={() =>
+              navigation.navigate('ProgressTracking', { workouts: workouts })
+            }
+          />
+        </View>
+      </View>
     </View>
   )
 }

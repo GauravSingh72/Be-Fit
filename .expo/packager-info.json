@@ -2,8 +2,8 @@
   "expoServerPort": 19000,
   "packagerPort": 19000,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://me-vs4.singh07.fitlife-companion.exp.direct",
+  "packagerNgrokUrl": "https://me-vs4.singh07.fitlife-companion.exp.direct",
+  "ngrokPid": 69859,
   "webpackServerPort": null
 }

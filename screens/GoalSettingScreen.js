@@ -12,6 +12,7 @@ function GoalSettingScreen ({ navigation }) {
   const [goalType, setGoalType] = useState('')
   const [goalTarget, setGoalTarget] = useState('')
   const [savedGoals, setSavedGoals] = useState([])
+  const [totalCalorieGoal, setTotalCalorieGoal] = useState('')
 
   const handleSaveGoal = () => {
     if (!goalType || !goalTarget) {
@@ -19,10 +20,11 @@ function GoalSettingScreen ({ navigation }) {
       return
     }
 
-    const newGoal = { goalType, goalTarget }
+    const newGoal = { goalType, goalTarget, totalCalorieGoal }
     setSavedGoals([...savedGoals, newGoal])
     setGoalType('')
     setGoalTarget('')
+    setTotalCalorieGoal('')
   }
 
   return (
@@ -40,6 +42,12 @@ function GoalSettingScreen ({ navigation }) {
         onChangeText={setGoalTarget}
         style={styles.input}
       />
+      <TextInput
+        placeholder='Total Calorie Goal'
+        value={totalCalorieGoal}
+        onChangeText={setTotalCalorieGoal}
+        style={styles.input}
+      />
       <TouchableOpacity style={styles.button} onPress={handleSaveGoal}>
         <Text style={styles.buttonText}>Save Goal</Text>
       </TouchableOpacity>
@@ -47,7 +55,9 @@ function GoalSettingScreen ({ navigation }) {
         {savedGoals.map((goal, index) => (
           <View key={index} style={styles.logItem}>
             <Text>
-              Goal Type: {goal.goalType}, Goal Target: {goal.goalTarget}
+              Goal Type: {goal.goalType}
+              {'\n'}Goal Target: {goal.goalTarget}
+              {'\n'}Total Calories : {goal.totalCalorieGoal}
             </Text>
           </View>
         ))}

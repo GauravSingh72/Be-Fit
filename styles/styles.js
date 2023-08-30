@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: 10,
     backgroundColor: '#f4f4f4'
   },
   heading: {
@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    padding: 12,
+    padding: 8,
     marginBottom: 20,
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    fontSize: 12
   },
   button: {
     backgroundColor: '#007bff',
@@ -41,22 +42,22 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 12,
     padding: 12,
     borderRadius: 8,
     backgroundColor: '#007bff'
   },
   logContainer: {
     flex: 1,
-    width: '100%'
+    width: '100%',
   },
   logItem: {
     backgroundColor: '#fff',
     borderRadius: 8,
-    padding: 12,
-    marginBottom: 15,
+    padding: 8,
+    marginBottom: 6,
     borderWidth: 1,
-    borderColor: '#ccc'
+    borderColor: '#ccc',
   },
   tabContainer: {
     flexDirection: 'row',
@@ -117,6 +118,36 @@ const styles = StyleSheet.create({
   },
 
   workoutBtn: {
+    marginVertical: 10
+  },
+  progressContainer: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  progressBar: {
+    marginTop: 15,
+    height: 10,
+    borderRadius: 5
+  },
+  ProgressContainer: {
+    padding: 20
+  },
+  goalCompletedText: {
+    color: 'green',
+    fontWeight: 600
+  },
+
+  progressBtn: {
     marginVertical: 10
   }
 })
